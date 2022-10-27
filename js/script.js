@@ -58,18 +58,27 @@ createApp({
 
     methods: {
         next(){
-            console.log("nextImg");
+            const slides = document.querySelectorAll('.thumbs > .thumb')
+            const slideattiva = slides[this.index]
+            slideattiva.classList.remove('active')
             this.index++
-            if(this.index === this.slides.length)
-            this.index = 0
+            if(this.index === this.slides.length){
+                this.index = 0
+            }
+            const nextSlide = slides[this.index]
+            nextSlide.classList.add('active')
         },
 
         back(){
-            console.log("backImg");
+            const slides = document.querySelectorAll('.thumbs > .thumb')
+            const slideattiva = slides[this.index]
+            slideattiva.classList.remove('active')
             this.index--
             if(this.index < 0){
                 this.index = this.slides.length -1
             }
+            const nextSlide = slides[this.index]
+            nextSlide.classList.add('active')
         }
     }
 
